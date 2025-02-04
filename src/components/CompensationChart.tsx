@@ -8,7 +8,7 @@ interface CompensationChartProps {
     name?: string;
     amount?: number;
     value?: number;
-    offered?: number;
+    given?: number;
     consumed?: number;
   }>;
 }
@@ -34,19 +34,16 @@ export function CompensationChart({ type = 'bar', data }: CompensationChartProps
             <XAxis dataKey="type" />
             <YAxis tickFormatter={formatValue} />
             <Tooltip 
-			formatter={(value: number, props: any) => {
-              const key = props.dataKey
-			  if (key === 'offered') {
-                return [formatValue(value), 'Offered'];
-              } else if (key === 'consumed') {
-                return [formatValue(value), 'Consumed'];
+            formatter={(value: number, name: string, props: any) => {
+              if (props.payload && props.payload.name) {
+                return [formatValue(value), props.payload.name]; 
               } else {
                 return [formatValue(value), 'Amount'];
               }
             }}
             />
             <Legend />
-            <Bar name="Offered" dataKey="offered" fill="#3B82F6" />
+            <Bar name="Given" dataKey="given" fill="#3B82F6" />
             <Bar name="Consumed" dataKey="consumed" fill="#22C55E" />
           </BarChart>
         </ResponsiveContainer>
