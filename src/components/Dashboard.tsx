@@ -87,11 +87,12 @@ export function Dashboard({ onBack }: DashboardProps) {
             value="$1,234,567"
             change="+12.3%"
             isPositive={false}
+			isIncreasing={true}
           />
           <MetricsCard
             icon={Coffee}
             title="Consumed Compensation"
-            value={`$${(totalConsumed / 1000).toFixed(1)}K`}
+            value={`$${Math.round(totalConsumed).toLocaleString()}`}
             subtext={`${consumptionRate}% utilization rate`}
           />
           <MetricsCard
@@ -100,6 +101,8 @@ export function Dashboard({ onBack }: DashboardProps) {
             value="4,567"
             change="-8.5%"
             isPositive={true}
+			isIncreasing={false}
+
           />
 		  <MetricsCard
             icon={ShoppingBag}
@@ -107,6 +110,7 @@ export function Dashboard({ onBack }: DashboardProps) {
             value="2,345"
             change="+5.2%"
             isPositive={true}
+			isIncreasing={true}
             subtext="$89 avg. per customer"
           />
         </div>

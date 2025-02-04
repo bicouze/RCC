@@ -7,10 +7,11 @@ interface MetricsCardProps {
   value: string;
   change?: string;
   isPositive?: boolean;
+  isIncreasing?: boolean;
   subtext?: string;
 }
 
-export function MetricsCard({ icon: Icon, title, value, change, isPositive, subtext }: MetricsCardProps) {
+export function MetricsCard({ icon: Icon, title, value, change, isPositive, isIncreasing, subtext }: MetricsCardProps) {
   return (
     <div className="bg-white rounded-xl shadow-sm p-6">
       <div className="flex items-center gap-3">
@@ -23,11 +24,11 @@ export function MetricsCard({ icon: Icon, title, value, change, isPositive, subt
         <span className="text-2xl font-bold text-gray-900">{value}</span>
         {change && (
           <div className="flex items-center gap-1 mt-1">
-            {isPositive ? (
-              <ArrowDownRight className="w-4 h-4 text-green-500" />
+            {isIncreasing ? (
+              <ArrowUpRight className={`w-4 h-4 ${isPositive ? 'text-green-500' : 'text-red-500'}`} />
             ) : (
-              <ArrowUpRight className="w-4 h-4 text-red-500" />
-            )}
+              <ArrowDownRight className={`w-4 h-4 ${isPositive ? 'text-green-500' : 'text-red-500'}`} />
+			  )}
             <span className={`text-sm font-medium ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
               {change}
             </span>
