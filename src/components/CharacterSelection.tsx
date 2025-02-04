@@ -30,7 +30,7 @@ export function CharacterSelection({ onSelect, onDashboard }: CharacterSelection
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-2xl mx-auto">
         <div className="bg-amber-200 rounded-xl shadow-sm p-6 mb-6">
-          <h1 className="text-2xl font-bold text-amber-700">Welcome to the Non-Air Recovery Hub (NARH)</h1>
+          <h1 className="text-2xl font-bold text-amber-700">Welcome to the Recovery Care Center (RCC)</h1>
           <p className="text-amber-700 mt-2">
             Choose your experience to continue
           </p>
