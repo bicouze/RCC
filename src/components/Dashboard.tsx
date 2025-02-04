@@ -78,7 +78,7 @@ export function Dashboard({ onBack }: DashboardProps) {
           />
           <MetricsCard
             icon={Users}
-            title="Affected customers"
+            title="Affected Customers"
             value="4,567"
             change="-8.5%"
             isPositive={true}
@@ -89,7 +89,7 @@ export function Dashboard({ onBack }: DashboardProps) {
             value="2,345"
             change="+5.2%"
             isPositive={false}
-            subtext="$89 avg. per customer"
+            subtext="$89 avg. per Customer"
           />
           <MetricsCard
             icon={MapPin}
@@ -105,7 +105,7 @@ export function Dashboard({ onBack }: DashboardProps) {
             <CompensationChart data={compensationData} />
           </div>
           <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Compensation by customer Class</h2>
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Compensation by Customer Class</h2>
             <CompensationChart type="pie" data={customerClassData} />
           </div>
         </div>
