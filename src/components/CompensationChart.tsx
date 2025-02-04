@@ -34,10 +34,11 @@ export function CompensationChart({ type = 'bar', data }: CompensationChartProps
             <XAxis dataKey="type" />
             <YAxis tickFormatter={formatValue} />
             <Tooltip 
-			formatter={(value: number, dataKey: string) => {
-              if (dataKey === 'offered') {
+			formatter={(value: number, props: any) => {
+              const key = props.dataKey
+			  if (key === 'offered') {
                 return [formatValue(value), 'Offered'];
-              } else if (dataKey === 'consumed') {
+              } else if (key === 'consumed') {
                 return [formatValue(value), 'Consumed'];
               } else {
                 return [formatValue(value), 'Amount'];
