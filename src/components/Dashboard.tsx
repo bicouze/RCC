@@ -18,7 +18,7 @@ export function Dashboard({ onBack }: DashboardProps) {
     { type: 'Activities', amount: 324567 },
   ];
 
-  const passengerClassData = [
+  const customerClassData = [
     { name: 'Economy', value: 2800 },
     { name: 'Premium Economy', value: 980 },
     { name: 'Business', value: 687 },
@@ -78,7 +78,7 @@ export function Dashboard({ onBack }: DashboardProps) {
           />
           <MetricsCard
             icon={Users}
-            title="Affected Passengers"
+            title="Affected customers"
             value="4,567"
             change="-8.5%"
             isPositive={true}
@@ -89,7 +89,7 @@ export function Dashboard({ onBack }: DashboardProps) {
             value="2,345"
             change="+5.2%"
             isPositive={false}
-            subtext="$89 avg. per passenger"
+            subtext="$89 avg. per customer"
           />
           <MetricsCard
             icon={MapPin}
@@ -105,8 +105,8 @@ export function Dashboard({ onBack }: DashboardProps) {
             <CompensationChart data={compensationData} />
           </div>
           <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Compensation by Passenger Class</h2>
-            <CompensationChart type="pie" data={passengerClassData} />
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Compensation by customer Class</h2>
+            <CompensationChart type="pie" data={customerClassData} />
           </div>
         </div>
 
