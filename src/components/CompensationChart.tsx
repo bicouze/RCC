@@ -1,13 +1,15 @@
 import React from 'react';
-import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
 interface CompensationChartProps {
-  type?: 'bar' | 'pie';
+  type?: 'bar' | 'pie' | 'consumption';
   data: Array<{
     type?: string;
     name?: string;
     amount?: number;
     value?: number;
+    offered?: number;
+    consumed?: number;
   }>;
 }
 
@@ -22,6 +24,26 @@ export function CompensationChart({ type = 'bar', data }: CompensationChartProps
     }
     return `$${value}`;
   };
+
+  if (type === 'consumption') {
+    return (
+      <div className="h-[300px] w-full">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={data}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="type" />
+            <YAxis tickFormatter={formatValue} />
+            <Tooltip 
+              formatter={(value: number) => [formatValue(value), 'Amount']}
+            />
+            <Legend />
+            <Bar name="Offered" dataKey="offered" fill="#3B82F6" />
+            <Bar name="Consumed" dataKey="consumed" fill="#22C55E" />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+    );
+  }
 
   if (type === 'pie') {
     return (

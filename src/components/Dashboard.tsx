@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Calendar, DollarSign, Users, MapPin, Filter, Download, RefreshCcw, ShoppingBag } from 'lucide-react';
+import { ArrowLeft, Calendar, DollarSign, Users, MapPin, Filter, Download, RefreshCcw, ShoppingBag, Coffee, Percent } from 'lucide-react';
 import { CompensationChart } from './CompensationChart';
 import { MetricsCard } from './MetricsCard';
 import { CompensationTable } from './CompensationTable';
@@ -18,12 +18,24 @@ export function Dashboard({ onBack }: DashboardProps) {
     { type: 'Activities', amount: 324567 },
   ];
 
+  const consumptionData = [
+    { type: 'Hotels', offered: 450000, consumed: 427500 },
+    { type: 'Meals', offered: 280000, consumed: 196000 },
+    { type: 'Transport', offered: 180000, consumed: 144000 },
+    { type: 'Activities', offered: 324567, consumed: 259654 },
+  ];
+
   const customerClassData = [
     { name: 'Economy', value: 2800 },
     { name: 'Premium Economy', value: 980 },
     { name: 'Business', value: 687 },
     { name: 'First', value: 100 },
   ];
+
+  // Calculate total offered and consumed
+  const totalOffered = consumptionData.reduce((acc, curr) => acc + curr.offered, 0);
+  const totalConsumed = consumptionData.reduce((acc, curr) => acc + curr.consumed, 0);
+  const consumptionRate = Math.round((totalConsumed / totalOffered) * 100);
   
   return (
     <div className="min-h-screen bg-gray-50">
@@ -71,10 +83,16 @@ export function Dashboard({ onBack }: DashboardProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <MetricsCard
             icon={DollarSign}
-            title="Total Compensation"
+            title="Given Compensation"
             value="$1,234,567"
             change="+12.3%"
             isPositive={false}
+          />
+          <MetricsCard
+            icon={Coffee}
+            title="Consumed Compensation"
+            value={`$${(totalConsumed / 1000).toFixed(1)}K`}
+            subtext={`${consumptionRate}% utilization rate`}
           />
           <MetricsCard
             icon={Users}
@@ -83,26 +101,20 @@ export function Dashboard({ onBack }: DashboardProps) {
             change="-8.5%"
             isPositive={true}
           />
-          <MetricsCard
+		  <MetricsCard
             icon={ShoppingBag}
             title="Purchased Offers"
             value="2,345"
             change="+5.2%"
-            isPositive={false}
-            subtext="$89 avg. per Customer"
-          />
-          <MetricsCard
-            icon={MapPin}
-            title="Most Affected Route"
-            value="YUL → YVR"
-            subtext="23% of cases"
+            isPositive={true}
+            subtext="$89 avg. per customer"
           />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Compensation by Type</h2>
-            <CompensationChart data={compensationData} />
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Offered vs Consumed by Type</h2>
+            <CompensationChart type="consumption" data={consumptionData} />
           </div>
           <div className="bg-white rounded-xl shadow-sm p-6">
             <h2 className="text-lg font-semibold text-gray-900 mb-4">Compensation by Customer Class</h2>

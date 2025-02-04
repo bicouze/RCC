@@ -10,6 +10,7 @@ export function CompensationTable() {
       customers: 180,
       type: 'Cancellation',
       amount: '$45,670',
+      consumed: '$38,820',
       status: 'Completed',
       offers: '145/180',
     },
@@ -21,6 +22,7 @@ export function CompensationTable() {
       customers: 120,
       type: 'Delay',
       amount: '$12,350',
+      consumed: '$9,880',
       status: 'Processing',
       offers: '98/120',
     },
@@ -47,7 +49,10 @@ export function CompensationTable() {
               Type
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Amount
+              Offered
+            </th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Consumed
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               Offers Accepted
@@ -77,6 +82,9 @@ export function CompensationTable() {
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                 {row.amount}
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                {row.consumed}
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                 {row.offers}
