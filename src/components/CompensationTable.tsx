@@ -7,7 +7,7 @@ export function CompensationTable() {
       date: '2024-03-15',
       flight: '6X123',
       route: 'YUL → YVR',
-      passengers: 180,
+      customers: 180,
       type: 'Cancellation',
       amount: '$45,670',
       status: 'Completed',
@@ -18,7 +18,7 @@ export function CompensationTable() {
       date: '2024-03-14',
       flight: '6X456',
       route: 'YYZ → YUL',
-      passengers: 120,
+      customers: 120,
       type: 'Delay',
       amount: '$12,350',
       status: 'Processing',
@@ -41,7 +41,7 @@ export function CompensationTable() {
               Route
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Passengers
+              customers
             </th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               Type
@@ -70,7 +70,7 @@ export function CompensationTable() {
                 {row.route}
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                {row.passengers}
+                {row.customers}
               </td>
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                 {row.type}
