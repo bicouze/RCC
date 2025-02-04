@@ -19,10 +19,10 @@ export function Dashboard({ onBack }: DashboardProps) {
   ];
 
   const consumptionData = [
-    { type: 'Hotels', offered: 450000, consumed: 427500 },
-    { type: 'Meals', offered: 280000, consumed: 196000 },
-    { type: 'Transport', offered: 180000, consumed: 144000 },
-    { type: 'Activities', offered: 324567, consumed: 259654 },
+    { type: 'Hotels', given: 450000, consumed: 427500 },
+    { type: 'Meals', given: 280000, consumed: 196000 },
+    { type: 'Transport', given: 180000, consumed: 144000 },
+    { type: 'Activities', given: 324567, consumed: 259654 },
   ];
 
   const customerClassData = [
@@ -32,10 +32,10 @@ export function Dashboard({ onBack }: DashboardProps) {
     { name: 'First', value: 100 },
   ];
 
-  // Calculate total offered and consumed
-  const totalOffered = consumptionData.reduce((acc, curr) => acc + curr.offered, 0);
+  // Calculate total given and consumed
+  const totalGiven = consumptionData.reduce((acc, curr) => acc + curr.given, 0);
   const totalConsumed = consumptionData.reduce((acc, curr) => acc + curr.consumed, 0);
-  const consumptionRate = Math.round((totalConsumed / totalOffered) * 100);
+  const consumptionRate = Math.round((totalConsumed / totalGiven) * 100);
   
   return (
     <div className="min-h-screen bg-gray-50">
