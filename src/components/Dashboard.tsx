@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Calendar, PiggyBank, ShoppingCart, Users, MapPin, Filter, Download, RefreshCcw, ShoppingBag, Percent } from 'lucide-react';
+import { ArrowLeft, Calendar, Gift, ShoppingCart, Users, MapPin, Filter, Download, RefreshCcw, ShoppingBag, Percent } from 'lucide-react';
 import { CompensationChart } from './CompensationChart';
 import { MetricsCard } from './MetricsCard';
 import { CompensationTable } from './CompensationTable';
@@ -82,7 +82,7 @@ export function Dashboard({ onBack }: DashboardProps) {
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <MetricsCard
-            icon={PiggyBank}
+            icon={Gift}
             title="Given Compensation"
             value="$1,234,567"
             change="+12.3%"
