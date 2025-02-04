@@ -117,7 +117,7 @@ export function Dashboard({ onBack }: DashboardProps) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Offered vs Consumed by Type</h2>
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Given vs Consumed by Type</h2>
             <CompensationChart type="consumption" data={consumptionData} />
           </div>
           <div className="bg-white rounded-xl shadow-sm p-6">
