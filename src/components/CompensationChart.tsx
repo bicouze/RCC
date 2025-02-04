@@ -43,7 +43,7 @@ export function CompensationChart({ type = 'bar', data }: CompensationChartProps
               ))}
             </Pie>
             <Tooltip 
-              formatter={(value: number) => [`${value} passengers`, 'Count']}
+              formatter={(value: number) => [`${value} customers`, 'Count']}
             />
           </PieChart>
         </ResponsiveContainer>
